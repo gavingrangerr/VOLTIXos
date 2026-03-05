@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Voltix
+Description=Voltix OS boot splash - hacker interface
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/voltix
+ScriptFile=/usr/share/plymouth/themes/voltix/voltix.script

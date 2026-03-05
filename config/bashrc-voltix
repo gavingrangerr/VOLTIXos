@@ -1,0 +1,15 @@
+# Voltix OS - Custom bash profile
+# Merged with ~/.bashrc by install script
+
+# Green-on-black hacker theme
+export PS1='\[\033[0;32m\]voltix\[\033[0m\]@\[\033[0;32m\]\h\[\033[0m\]:\[\033[0;36m\]\w\[\033[0m\]\$ '
+export PS2='\[\033[0;32m\]> \[\033[0m\]'
+
+# Optional: green text in terminal
+# export TERM=xterm-256color
+
+# Aliases
+alias ll='ls -la --color=auto'
+alias la='ls -A'
+alias matrix='cmatrix -b -C green'
+alias voltix-info='neofetch && figlet -f small VOLTIX'

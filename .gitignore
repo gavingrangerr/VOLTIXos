@@ -1,0 +1,12 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.img
+output/
+build/
+
+# Editor
+*.swp
+*~

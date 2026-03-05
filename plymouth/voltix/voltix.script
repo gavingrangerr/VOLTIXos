@@ -1,0 +1,28 @@
+# Voltix OS - Plymouth boot splash
+# Green-on-black hacker aesthetic
+
+# Green color (0, 1, 0 = pure green)
+text_red = 0;
+text_green = 0.4;
+text_blue = 0;
+
+screen_width = Window.GetWidth();
+screen_height = Window.GetHeight();
+
+# Title "VOLTIX OS"
+font = "Sans Bold 24";
+title.image = Image.Text("VOLTIX OS", text_red, text_green, text_blue, 1, font);
+title.sprite = Sprite();
+title.sprite.SetImage(title.image);
+title.x = screen_width / 2 - title.image.GetWidth() / 2;
+title.y = screen_height / 2 - title.image.GetHeight() / 2 - 20;
+title.sprite.SetPosition(title.x, title.y, 10000);
+
+# Subtitle
+subfont = "Sans 12";
+subtitle.image = Image.Text("Raspberry Pi 5", text_red, text_green, text_blue, 1, subfont);
+subtitle.sprite = Sprite();
+subtitle.sprite.SetImage(subtitle.image);
+subtitle.x = screen_width / 2 - subtitle.image.GetWidth() / 2;
+subtitle.y = title.y + title.image.GetHeight() + 15;
+subtitle.sprite.SetPosition(subtitle.x, subtitle.y, 10000);

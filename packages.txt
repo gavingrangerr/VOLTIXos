@@ -1,0 +1,29 @@
+# Voltix OS - Hacker Interface Packages
+# Install with: xargs -a packages.txt sudo apt-get install -y
+
+# Terminal / Hacker aesthetics
+cmatrix
+hollywood
+htop
+neofetch
+figlet
+lolcat
+sl
+cowsay
+fortune-mod
+
+# Network / security tools
+nmap
+net-tools
+curl
+wget
+
+# System utilities
+vim
+tmux
+tree
+unzip
+rsync
+
+# Plymouth (boot splash) - install separately if using
+# plymouth plymouth-themes
