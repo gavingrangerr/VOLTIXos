@@ -1,0 +1,36 @@
+name: Build Voltix OS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'buildroot/**'
+      - '.github/workflows/build-voltix.yml'
+  workflow_dispatch:  # Manual trigger from Actions tab
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180  # 3 hours (build takes ~1-2 hours)
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libncurses-dev git wget \
+            unzip rsync python3 bc file
+
+      - name: Build Voltix OS
+        run: |
+          cd buildroot
+          ./build.sh
+
+      - name: Upload image
+        uses: actions/upload-artifact@v4
+        with:
+          name: voltix-os-image
+          path: build/output/images/sdcard.img
+          retention-days: 30
