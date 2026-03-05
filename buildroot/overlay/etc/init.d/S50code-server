@@ -1,0 +1,34 @@
+#!/bin/sh
+# Start code-server (VS Code in browser) on boot
+
+DAEMON="/opt/code-server/bin/code-server"
+NAME="code-server"
+DESC="VS Code Server"
+PIDFILE="/var/run/code-server.pid"
+
+case "$1" in
+  start)
+    echo "Starting $DESC..."
+    # --bind-addr 0.0.0.0:8080 = accessible from network
+    # --auth password = use password (default, printed on first run)
+    start-stop-daemon -S -b -m -p "$PIDFILE" -x "$DAEMON" -- \
+      --host 0.0.0.0 \
+      --port 8080 \
+      --config /root/.config/code-server/config.yaml
+    ;;
+  stop)
+    echo "Stopping $DESC..."
+    start-stop-daemon -K -p "$PIDFILE"
+    ;;
+  restart)
+    $0 stop
+    sleep 2
+    $0 start
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0

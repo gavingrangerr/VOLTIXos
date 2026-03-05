@@ -2,7 +2,25 @@
 
 A guide to customizing your Voltix OS base.
 
-## Quick Edits
+## Buildroot vs Raspberry Pi OS
+
+- **Buildroot** (from-scratch image): Edit `buildroot/` — overlay, defconfig
+- **Raspberry Pi OS** (customize existing): Edit `config/`, `etc/`, `scripts/`
+
+---
+
+## Buildroot Customization
+
+| What to change | File |
+|----------------|------|
+| Login message | `buildroot/overlay/etc/motd` |
+| Shell profile | `buildroot/overlay/etc/profile.d/voltix.sh` |
+| Packages | `buildroot/configs/voltix_rpi5_defconfig` (BR2_PACKAGE_* lines) |
+| Hostname | `buildroot/configs/voltix_rpi5_defconfig` (BR2_TARGET_GENERIC_HOSTNAME) |
+
+Add files to `buildroot/overlay/` — directory structure mirrors the target rootfs (e.g. `overlay/etc/foo` → `/etc/foo`).
+
+## Raspberry Pi OS Customization
 
 | What to change | File |
 |----------------|------|

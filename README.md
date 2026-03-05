@@ -50,7 +50,8 @@ Replace `/dev/sdX` with your SD card device (e.g. `/dev/sda`). **Warning:** This
 
 - Login: **root** (no password — run `passwd` immediately)
 - Hostname: **voltix-os**
-- Preinstalled: htop, nmap, vim, tmux, neofetch, curl, wget, OpenSSH, etc.
+- Preinstalled: htop, nmap, vim, tmux, neofetch, curl, wget, OpenSSH, **code-server (VS Code in browser)**
+- **VS Code**: Open `http://voltix-os.local:8080` (or `http://<pi-ip>:8080`) in a browser — default password: `voltix` (change in Settings)
 
 ---
 
